@@ -13,7 +13,8 @@ Useful shortcodes for WooCommerce.
 
 Shortcodes included:  
 
-* Featured products by category.
+* Featured products by category  
+* List subcategories from category  
 
 
 [Bug report](https://github.com/s3rgiosan/shortcodes-for-woocommerce/issues)  
@@ -35,9 +36,28 @@ Args:
     'columns'  => '3',  
     'orderby'  => 'title',  
     'order'    => 'desc',  
-    'category' => '',  // required
+    'category' => '',  // required  
     'operator' => 'IN',  
-    'taxonomy' => 'product_cat',  
+    'taxonomy' => 'product_cat'  
+  
+
+
+= How can I use the "list subcategories from category" shortcode? =  
+
+`[subcategories_from_category category="CATEGORY_SLUG"]`  
+
+Args:   
+
+    'category'     => '',  // required  
+    'orderby'      => 'name',  
+    'order'        => 'asc',  
+    'style'        => 'list',  
+    'show_count'   => 0,  
+    'hide_empty'   => 0,  
+    'hierarchical' => 0,  
+    'taxonomy'     => 'product_cat',  
+    'show_title'   => 1,  
+    'css_class'    => 'subcategories-from-category'  
   
 
 == Installation ==
@@ -63,7 +83,11 @@ See the [FAQ](https://wordpress.org/plugins/shortcodes-for-woocommerce/faq/) for
 
 == Changelog ==
 
+= 1.1.0 =
+* [subcategories_from_category] shortcode.  
+
 = 1.0.0 =
+* [featured_products_by_category] shortcode.  
 * Initial release.  
 
 == Upgrade Notice ==

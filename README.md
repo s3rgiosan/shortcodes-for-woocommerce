@@ -13,7 +13,8 @@ Useful shortcodes for WooCommerce.
 
 Shortcodes included:  
 
-* Featured products by category.
+* Featured products by category  
+* List subcategories from category  
 
 
 [Bug report](https://github.com/s3rgiosan/shortcodes-for-woocommerce/issues)  

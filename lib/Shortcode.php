@@ -117,6 +117,81 @@ class Shortcode {
 	}
 
 	/**
+	 * List subcategories from category.
+	 *
+	 * @since     1.1.0
+	 * @param     array    $atts    User defined attributes in shortcode tag.
+	 * @return    string            Shortcode markup.
+	 */
+	public function subcategories_from_category( $atts ) {
+
+		if ( ! $this->is_woocommerce_active() ) {
+			return;
+		}
+
+		$atts = \shortcode_atts(
+			array(
+				'category'     => '',
+				'orderby'      => 'name',
+				'order'        => 'asc',
+				'style'        => 'list',
+				'show_count'   => 0,
+				'hide_empty'   => 0,
+				'hierarchical' => 0,
+				'taxonomy'     => 'product_cat',
+				'show_title'   => 1,
+				'css_class'    => 'subcategories-from-category'
+			),
+			$atts
+		);
+
+		$category     = \sanitize_title( $atts['category'] );
+		$orderby      = \sanitize_key( $atts['orderby'] );
+		$order        = \sanitize_key( $atts['order'] );
+		$style        = \sanitize_key( $atts['style'] );
+		$show_count   = \sanitize_key( $atts['show_count'] );
+		$hide_empty   = \sanitize_key( $atts['hide_empty'] );
+		$hierarchical = \sanitize_key( $atts['hierarchical'] );
+		$taxonomy     = \sanitize_text_field( $atts['taxonomy'] );
+		$show_title   = \sanitize_key( $atts['show_title'] );
+		$css_class    = \sanitize_text_field( $atts['css_class'] );
+
+		if ( empty( $category ) ) {
+			return '';
+		}
+
+		$term = \get_term_by( 'slug', $category, $taxonomy );
+
+		if ( ! $term ) {
+			return '';
+		}
+
+		// Query args
+		$args = array(
+			'orderby'      => $orderby,
+			'order'        => $order,
+			'style'        => $style,
+			'show_count'   => $show_count,
+			'hide_empty'   => $hide_empty,
+			'child_of'     => $term->term_id,
+			'hierarchical' => $hierarchical,
+			'title_li'     => $show_title ? $term->name : '',
+			'echo'         => 0,
+			'taxonomy'     => $taxonomy,
+			'walker'       => \apply_filters( 'woocommerce_shortcode_subcategories_from_category_walker', new \Walker_Category, $atts )
+		);
+
+		// Get categories
+		$categories = \wp_list_categories( $args );
+
+		return sprintf(
+			'<ul class="%s">%s</ul>',
+			esc_attr( $css_class ),
+			\apply_filters( 'woocommerce_shortcode_subcategories_from_category', $categories )
+		);
+	}
+
+	/**
 	 * Check if WooCommerce is active.
 	 *
 	 * @since     1.0.0

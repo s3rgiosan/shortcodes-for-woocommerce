@@ -47,7 +47,7 @@ class Plugin {
 	 * @access    protected
 	 * @var       string    $version    The current version of the plugin.
 	 */
-	protected $version = '1.0.0';
+	protected $version = '1.1.0';
 
 	/**
 	 * Define the core functionality of the plugin.
@@ -63,12 +63,19 @@ class Plugin {
 	/**
 	 * Register all of the shortcodes.
 	 *
-	 * @since     1.0.0
+	 * @since     1.1.0    [subcategories_from_category].
+	 * @since     1.0.0    [featured_products_by_category].
 	 * @access    private
 	 */
 	private function define_shortcodes() {
 		$shortcode = new Shortcode( $this );
+
+		// Featured products by category
 		\add_shortcode( 'featured_products_by_category', array( $shortcode, 'featured_products_by_category' ) );
+
+		// List subcategories from category
+		\add_shortcode( 'subcategories_from_category', array( $shortcode, 'subcategories_from_category' ) );
+
 	}
 
 	/**
