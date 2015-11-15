@@ -49,64 +49,63 @@ class Shortcode {
 	 */
 	public function featured_products_by_category( $atts ) {
 
-		if ( ! \ is_woocommerce_active() ) {
+		if ( ! $this->is_woocommerce_active() ) {
 			return;
 		}
 
 		$atts = \shortcode_atts(
 			array(
-				'per_page' => '12',
-				'columns'  => '3',
-				'orderby'  => 'title',
-				'order'    => 'desc',
-				'category' => '',
-				'operator' => 'IN',
-				'taxonomy' => 'product_cat',
+				'per_page'      => '12',
+				'category'      => '',
+				'orderby'       => 'title',
+				'order'         => 'desc',
+				'ignore_sticky' => 1,
+				'operator'      => 'IN',
+				'taxonomy'      => 'product_cat',
+				'columns'       => '3'
 			),
 			$atts
 		);
 
-		$per_page = \sanitize_key( $atts['per_page'] );
-		$order    = \sanitize_key( $atts['order'] );
-		$orderby  = \sanitize_key( $atts['orderby'] );
-		$category = \sanitize_title( $atts['category'] );
-		$operator = \sanitize_key( $atts['operator'] );
-		$taxonomy = \sanitize_text_field( $atts['taxonomy'] );
+		$per_page      = \sanitize_key( $atts['per_page'] );
+		$category      = \sanitize_title( $atts['category'] );
+		$orderby       = \sanitize_key( $atts['orderby'] );
+		$order         = \sanitize_key( $atts['order'] );
+		$ignore_sticky = \sanitize_key( $atts['ignore_sticky'] );
+		$operator      = \sanitize_key( $atts['operator'] );
+		$taxonomy      = \sanitize_text_field( $atts['taxonomy'] );
 
 		if ( empty( $category ) ) {
 			return '';
 		}
 
 		// Query args
-		$query_args = \apply_filters( 'woocommerce_shortcode_featured_products_by_category',
-			array(
-				'post_type'           => array( 'product' ),
-				'post_status'         => 'publish',
-				'ignore_sticky_posts' => 1,
-				'orderby'             => $orderby,
-				'order'               => $order,
-				'posts_per_page'      => $per_page,
-				'tax_query'           => array(
-					array(
-						'taxonomy' => $taxonomy,
-						'terms'    => $category,
-						'field'    => 'slug',
-						'operator' => $operator
-					)
-				),
-				'meta_query' => array(
-					array(
-						'key'     => '_visibility',
-						'value'   => array( 'catalog', 'visible' ),
-						'compare' => 'IN'
-					),
-					array(
-						'key'     => '_featured',
-						'value'   => 'yes'
-					)
+		$query_args = array(
+			'posts_per_page'      => $per_page,
+			'orderby'             => $orderby,
+			'order'               => $order,
+			'post_type'           => array( 'product' ),
+			'post_status'         => 'publish',
+			'ignore_sticky_posts' => $ignore_sticky,
+			'tax_query'           => array(
+				array(
+					'taxonomy' => $taxonomy,
+					'terms'    => $category,
+					'field'    => 'slug',
+					'operator' => $operator
 				)
 			),
-			$atts
+			'meta_query' => array(
+				array(
+					'key'     => '_visibility',
+					'value'   => array( 'catalog', 'visible' ),
+					'compare' => 'IN'
+				),
+				array(
+					'key'     => '_featured',
+					'value'   => 'yes'
+				)
+			)
 		);
 
 		// Force 'product' custom post type...just in case :-)
@@ -115,6 +114,15 @@ class Shortcode {
 		}
 
 		return $this->get_products( $query_args, $atts );
+	}
+
+	/**
+	 * Check if WooCommerce is active.
+	 *
+	 * @since     1.0.0
+	 */
+	private function is_woocommerce_active() {
+		return in_array( 'woocommerce/woocommerce.php', \apply_filters( 'active_plugins', \get_option( 'active_plugins' ) ) );
 	}
 
 	/**
