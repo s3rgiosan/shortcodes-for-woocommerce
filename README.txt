@@ -2,7 +2,7 @@
 Contributors: s3rgiosan  
 Tags: woocommerce, shortcode, featured, product, category  
 Requires at least: 4.0  
-Tested up to: 4.2.2  
+Tested up to: 4.3.1  
 Stable tag: trunk  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
@@ -82,6 +82,10 @@ Args:
 See the [FAQ](https://wordpress.org/plugins/shortcodes-for-woocommerce/faq/) for more details.  
 
 == Changelog ==
+
+= 1.1.1 =
+* Added GitHub Updater support.  
+* Added Update supported WordPress version.   
 
 = 1.1.0 =
 * [subcategories_from_category] shortcode.  

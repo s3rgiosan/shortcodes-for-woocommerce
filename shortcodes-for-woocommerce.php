@@ -13,13 +13,15 @@
  * Plugin Name:       Shortcodes for WooCommerce
  * Plugin URI:        https://github.com/s3rgiosan/shortcodes-for-woocommerce/
  * Description:       Useful shortcodes for WooCommerce.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Author:            Sérgio Santos
  * Author URI:        http://s3rgiosan.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       shortcodes-for-woocommerce
  * Domain Path:       /languages
+ * GitHub Plugin URI: https://github.com/s3rgiosan/shortcodes-for-woocommerce
+ * GitHub Branch:     master
  */
 
 // If this file is called directly, abort.

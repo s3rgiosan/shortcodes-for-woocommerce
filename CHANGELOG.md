@@ -1,5 +1,9 @@
 # Changelog #
 
+## 1.1.1 ##
+* Added GitHub Updater support.  
+* Added Update supported WordPress version.   
+
 ## 1.1.0 ##
 * [subcategories_from_category] shortcode.  
 
