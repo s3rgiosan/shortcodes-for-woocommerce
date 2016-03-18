@@ -1,11 +1,11 @@
 # Shortcodes for WooCommerce #
-**Contributors:** s3rgiosan  
-**Tags:** woocommerce, shortcode, featured, product, category  
-**Requires at least:** 4.0  
-**Tested up to:** 4.3.1  
-**Stable tag:** trunk  
-**License:** GPLv2 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
+**Contributors:** s3rgiosan    
+**Tags:** woocommerce, shortcode, featured, product, category    
+**Requires at least:** 4.0    
+**Tested up to:** 4.3.1    
+**Stable tag:** 1.1.3    
+**License:** GPLv2 or later    
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html    
 
 Useful shortcodes for WooCommerce.  
 
@@ -20,6 +20,45 @@ Shortcodes included:
 [Bug report](https://github.com/s3rgiosan/shortcodes-for-woocommerce/issues)  
 [Source](https://github.com/s3rgiosan/shortcodes-for-woocommerce)  
 
+## Frequently Asked Questions ##
+
+### How can I use shortcodes in WooCommerce? ###
+
+Visit [Shortcodes included with WooCommerce](https://docs.woothemes.com/document/woocommerce-shortcodes/) for additional information.  
+
+### How can I use the "featured products by category" shortcode? ###
+
+`[featured_products_by_category category="CATEGORY_SLUG"]`  
+
+Args:   
+
+    'per_page' => '12',  
+    'columns'  => '3',  
+    'orderby'  => 'title',  
+    'order'    => 'desc',  
+    'category' => '',  // required  
+    'operator' => 'IN',  
+    'taxonomy' => 'product_cat'  
+  
+
+
+### How can I use the "list subcategories from category" shortcode? ###
+
+`[subcategories_from_category category="CATEGORY_SLUG"]`  
+
+Args:   
+
+    'category'     => '',  // required  
+    'orderby'      => 'name',  
+    'order'        => 'asc',  
+    'style'        => 'list',  
+    'show_count'   => 0,  
+    'hide_empty'   => 0,  
+    'hierarchical' => 0,  
+    'taxonomy'     => 'product_cat',  
+    'show_title'   => 1,  
+    'css_class'    => 'subcategories-from-category'  
+  
 
 ## Installation ##
 
@@ -42,6 +81,25 @@ Shortcodes included:
 
 See the [FAQ](https://wordpress.org/plugins/shortcodes-for-woocommerce/faq/) for more details.  
 
+## Changelog ##
+
+### 1.1.3 ###
+* Minor changes.  
+* Added language file. 
+
+### 1.1.2 ###
+* Fix PSR-4 loader conflict with older implementation.  
+
+### 1.1.1 ###
+* Added GitHub Updater support.  
+* Added Update supported WordPress version.   
+
+### 1.1.0 ###
+* [subcategories_from_category] shortcode.  
+
+### 1.0.0 ###
+* [featured_products_by_category] shortcode.  
+* Initial release.  
 
 ## Upgrade Notice ##
 
