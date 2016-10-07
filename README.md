@@ -1,9 +1,9 @@
 # Shortcodes for WooCommerce #
-**Contributors:** s3rgiosan    
+**Contributors:** s3rgiosan, vint3    
 **Tags:** woocommerce, shortcode, featured, product, category    
 **Requires at least:** 4.0    
-**Tested up to:** 4.3.1    
-**Stable tag:** 1.1.3    
+**Tested up to:** 4.6    
+**Stable tag:** 1.2.0    
 **License:** GPLv2 or later    
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -17,8 +17,8 @@ Shortcodes included:
 * List subcategories from category  
 
 
-[Bug report](https://github.com/s3rgiosan/shortcodes-for-woocommerce/issues)  
-[Source](https://github.com/s3rgiosan/shortcodes-for-woocommerce)  
+[Bug report](https://github.com/vint3creative/shortcodes-for-woocommerce/issues)  
+[Source](https://github.com/vint3creative/shortcodes-for-woocommerce)  
 
 ## Frequently Asked Questions ##
 
@@ -82,6 +82,11 @@ Args:
 See the [FAQ](https://wordpress.org/plugins/shortcodes-for-woocommerce/faq/) for more details.  
 
 ## Changelog ##
+
+### 1.2.0 ###
+* Transfered the project ownership to Vint3. 
+* Changed the class namespace. 
+* Some other minor changes. 
 
 ### 1.1.3 ###
 * Minor changes.  

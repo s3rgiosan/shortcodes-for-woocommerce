@@ -4,7 +4,7 @@ module.exports = function (grunt) {
 
   var config = {
     author:      'Sérgio Santos <me@s3rgiosan.com>',
-    support:     'https://github.com/s3rgiosan/shortcodes-for-woocommerce',
+    support:     'https://github.com/vint3creative/shortcodes-for-woocommerce',
     pluginSlug:  'shortcodes-for-woocommerce',
     mainFile:    'shortcodes-for-woocommerce',
     textDomain:  'shortcodes-for-woocommerce',

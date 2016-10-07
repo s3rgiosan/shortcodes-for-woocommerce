@@ -1,40 +1,40 @@
 <?php
-
 /**
  * The shortcode functionality of the plugin.
  *
- * @link       https://github.com/s3rgiosan/featured-products-by-category/
+ * @link       http://vint3.com
  * @since      1.0.0
  *
  * @package    WooCommerce
  * @subpackage Shortcodes/lib
  */
 
-namespace s3rgiosan\WooCommerce\Shortcodes;
+namespace Vint3\WooCommerce\Shortcodes;
 
 /**
  * The shortcode functionality of the plugin.
  *
+ * @since      1.0.0
  * @package    WooCommerce
  * @subpackage Shortcodes/lib
- * @author     Sérgio Santos <me@s3rgiosan.com>
+ * @author     Vint3 <hello@vint3.com>
  */
 class Shortcode {
 
 	/**
 	 * The plugin's instance.
 	 *
-	 * @since     1.0.0
-	 * @access    private
-	 * @var       Plugin    $plugin    This plugin's instance.
+	 * @since  1.0.0
+	 * @access private
+	 * @var    Plugin
 	 */
 	private $plugin;
 
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.0.0
-	 * @param    Plugin    $plugin    This plugin's instance.
+	 * @since 1.0.0
+	 * @param Plugin $plugin This plugin's instance.
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
@@ -43,9 +43,9 @@ class Shortcode {
 	/**
 	 * Display featured products by category.
 	 *
-	 * @since     1.0.0
-	 * @param     array    $atts    User defined attributes in shortcode tag.
-	 * @return    string            Shortcode markup.
+	 * @since  1.0.0
+	 * @param  array $atts User defined attributes in shortcode tag.
+	 * @return string      Shortcode markup.
 	 */
 	public function featured_products_by_category( $atts ) {
 
@@ -119,9 +119,9 @@ class Shortcode {
 	/**
 	 * List subcategories from category.
 	 *
-	 * @since     1.1.0
-	 * @param     array    $atts    User defined attributes in shortcode tag.
-	 * @return    string            Shortcode markup.
+	 * @since  1.1.0
+	 * @param  array $atts User defined attributes in shortcode tag.
+	 * @return string      Shortcode markup.
 	 */
 	public function subcategories_from_category( $atts ) {
 
@@ -194,7 +194,7 @@ class Shortcode {
 	/**
 	 * Check if WooCommerce is active.
 	 *
-	 * @since     1.0.0
+	 * @since 1.0.0
 	 */
 	private function is_woocommerce_active() {
 		return in_array( 'woocommerce/woocommerce.php', \apply_filters( 'active_plugins', \get_option( 'active_plugins' ) ) );
@@ -203,10 +203,10 @@ class Shortcode {
 	/**
 	 * Loop over found products.
 	 *
-	 * @since     1.0.0
-	 * @param     array    $query_args    \WP_Query arguments.
-	 * @param     array    $atts          User defined attributes in shortcode tag.
-	 * @return    string                  Current buffer contents.
+	 * @since  1.0.0
+	 * @param  array $query_args \WP_Query arguments.
+	 * @param  array $atts       User defined attributes in shortcode tag.
+	 * @return string            Current buffer contents.
 	 */
 	private function get_products( $query_args, $atts ) {
 		global $woocommerce_loop;
@@ -243,5 +243,4 @@ class Shortcode {
 
 		return '<div class="woocommerce columns-' . $columns . '">' . ob_get_clean() . '</div>';
 	}
-
 }

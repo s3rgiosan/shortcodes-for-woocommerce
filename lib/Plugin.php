@@ -1,25 +1,18 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
- * A class definition that includes attributes and functions used across both the
- * public-facing side of the site and the dashboard.
- *
- * @link       https://github.com/s3rgiosan/shortcodes-for-woocommerce/
+ * @link       http://vint3.com
  * @since      1.0.0
  *
  * @package    WooCommerce
  * @subpackage Shortcodes/lib
  */
 
-namespace s3rgiosan\WooCommerce\Shortcodes;
+namespace Vint3\WooCommerce\Shortcodes;
 
 /**
  * The core plugin class.
- *
- * This is used to define internationalization, dashboard-specific hooks, and
- * public-facing site hooks.
  *
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
@@ -27,64 +20,45 @@ namespace s3rgiosan\WooCommerce\Shortcodes;
  * @since      1.0.0
  * @package    WooCommerce
  * @subpackage Shortcodes/lib
- * @author     Sérgio Santos <me@s3rgiosan.com>
+ * @author     Vint3 <hello@vint3.com>
  */
 class Plugin {
 
 	/**
 	 * The unique identifier of this plugin.
 	 *
-	 * @since     1.0.0
-	 * @access    protected
-	 * @var       string    $pluginname    The string used to uniquely identify this plugin.
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    string
 	 */
-	protected $pluginname = 'shortcodes-for-woocommerce';
+	protected $name;
 
 	/**
 	 * The current version of the plugin.
 	 *
-	 * @since     1.0.0
-	 * @access    protected
-	 * @var       string    $version    The current version of the plugin.
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    string
 	 */
-	protected $version = '1.1.3';
+	protected $version;
 
 	/**
 	 * Define the core functionality of the plugin.
 	 *
-	 * Create an instance of the loader which will be used to register the hooks
-	 * with WordPress.
-	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
+	 * @param string $name    Plugin name.
+	 * @param string $version Plugin version.
 	 */
-	public function __construct() {
+	public function __construct( $name, $version ) {
+		$this->name    = $name;
+		$this->version = $version;
 	}
 
 	/**
-	 * Register all of the shortcodes.
-	 *
-	 * @since     1.1.0    [subcategories_from_category].
-	 * @since     1.0.0    [featured_products_by_category].
-	 * @access    private
-	 */
-	private function define_shortcodes() {
-		$shortcode = new Shortcode( $this );
-
-		// Featured products by category
-		\add_shortcode( 'featured_products_by_category', array( $shortcode, 'featured_products_by_category' ) );
-
-		// List subcategories from category
-		\add_shortcode( 'subcategories_from_category', array( $shortcode, 'subcategories_from_category' ) );
-
-	}
-
-	/**
-	 * Run the loader to execute all of the hooks with WordPress.
-	 *
 	 * Load the dependencies, define the locale, and set the hooks for the Dashboard and
 	 * the public-facing side of the site.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 */
 	public function run() {
 		$this->define_shortcodes();
@@ -94,21 +68,37 @@ class Plugin {
 	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
 	 *
-	 * @since     1.0.0
-	 * @return    string    The name of the plugin.
+	 * @since  1.0.0
+	 * @return string The name of the plugin.
 	 */
-	public function get_plugin_name() {
-		return $this->pluginname;
+	public function get_name() {
+		return $this->name;
 	}
 
 	/**
 	 * Retrieve the version number of the plugin.
 	 *
-	 * @since     1.0.0
-	 * @return    string    The version number of the plugin.
+	 * @since  1.0.0
+	 * @return string The version number of the plugin.
 	 */
 	public function get_version() {
 		return $this->version;
 	}
 
+	/**
+	 * Register all of the shortcodes.
+	 *
+	 * @since  1.1.0 [subcategories_from_category].
+	 * @since  1.0.0 [featured_products_by_category].
+	 * @access private
+	 */
+	private function define_shortcodes() {
+		$shortcode = new Shortcode( $this );
+
+		// Featured products by category
+		\add_shortcode( 'featured_products_by_category', array( $shortcode, 'featured_products_by_category' ) );
+
+		// List subcategories from category
+		\add_shortcode( 'subcategories_from_category', array( $shortcode, 'subcategories_from_category' ) );
+	}
 }

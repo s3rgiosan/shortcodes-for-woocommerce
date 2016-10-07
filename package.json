@@ -1,14 +1,19 @@
 {
   "name": "shortcodes-for-woocommerce",
-  "version": "1.1.2",
+  "version": "1.0.0",
   "description": "Useful shortcodes for WooCommerce.",
   "license": "GPL-2.0+",
-  "repository": "https://github.com/s3rgiosan/shortcodes-for-woocommerce.git",
+  "repository": "https://github.com/vint3creative/shortcodes-for-woocommerce.git",
   "author": [
+    {
+      "name": "Vint3",
+      "email": "hello@vint3.com",
+      "homepage": "http://vint3.com"
+    },
     {
       "name": "Sérgio Santos",
       "email": "me@s3rgiosan.com",
-      "homepage": "https://github.com/s3rgiosan"
+      "homepage": "https://s3rgiosan.com"
     }
   ],
   "devDependencies": {

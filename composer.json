@@ -1,29 +1,34 @@
 {
-  "name": "s3rgiosan/shortcodes-for-woocommerce",
+  "name": "vint3/shortcodes-for-woocommerce",
   "description": "Useful shortcodes for WooCommerce.",
   "type": "wordpress-plugin",
   "keywords": ["wordpress", "plugin"],
-  "homepage": "https://github.com/s3rgiosan/shortcodes-for-woocommerce",
+  "homepage": "https://github.com/vint3creative/shortcodes-for-woocommerce",
   "license": "GPL-2.0+",
   "authors": [
     {
+      "name": "Vint3",
+      "email": "hello@vint3.com",
+      "homepage": "http://vint3.com"
+    },
+    {
       "name": "Sérgio Santos",
       "email": "me@s3rgiosan.com",
-      "homepage": "https://github.com/s3rgiosan"
+      "homepage": "https://s3rgiosan.com"
     }
   ],
   "support": {
-    "issues": "https://github.com/s3rgiosan/shortcodes-for-woocommerce/issues",
-    "source": "https://github.com/s3rgiosan/shortcodes-for-woocommerce"
+    "issues": "https://github.com/vint3creative/shortcodes-for-woocommerce/issues",
+    "source": "https://github.com/vint3creative/shortcodes-for-woocommerce"
   },
   "autoload": {
     "psr-4": {
-      "s3rgiosan\\WooCommerce\\Shortcodes\\": "lib/"
+      "Vint3\\WooCommerce\\Shortcodes\\": "lib/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "s3rgiosan\\Tests\\WooCommerce\\Shortcodes\\": "tests/"
+      "Vint3\\Tests\\WooCommerce\\Shortcodes\\": "tests/"
     }
   },
   "require-dev": {
