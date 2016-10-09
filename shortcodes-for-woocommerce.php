@@ -13,7 +13,7 @@
  * Plugin Name:       Shortcodes for WooCommerce
  * Plugin URI:        https://github.com/vint3creative/shortcodes-for-woocommerce/
  * Description:       Useful shortcodes for WooCommerce.
- * Version:           1.2.0
+ * Version:           1.2.1
  * Author:            Vint3
  * Author URI:        http://vint3.com
  * License:           GPL-2.0+
@@ -41,6 +41,6 @@ if ( ! defined( 'WPINC' ) ) {
  * @since 1.0.0
  */
 \add_action( 'plugins_loaded', function () {
-	$plugin = new Shortcodes\Plugin( 'shortcodes-for-woocommerce', '1.2.0' );
+	$plugin = new Shortcodes\Plugin( 'shortcodes-for-woocommerce', '1.2.1' );
 	$plugin->run();
 } );
