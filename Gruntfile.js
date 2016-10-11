@@ -10,7 +10,7 @@ module.exports = function (grunt) {
     textDomain:  'shortcodes-for-woocommerce',
     potFilename: 'shortcodes-for-woocommerce',
     badges:      {
-      codacy: '[![Codacy Badge](https://api.codacy.com/project/badge/Grade/881fa274ad894136ad6091620493c55b)](https://www.codacy.com/app/s3rgiosan/shortcodes-for-woocommerce?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=s3rgiosan/shortcodes-for-woocommerce&amp;utm_campaign=Badge_Grade)',
+      codacy: '[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dfb12be070564798bba9fce8cebf10a3)](https://www.codacy.com/app/s3rgiosan/shortcodes-for-woocommerce?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=vint3creative/shortcodes-for-woocommerce&amp;utm_campaign=Badge_Grade)',
     },
   };
 
