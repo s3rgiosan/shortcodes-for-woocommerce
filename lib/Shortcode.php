@@ -62,7 +62,7 @@ class Shortcode {
 				'ignore_sticky' => 1,
 				'operator'      => 'IN',
 				'taxonomy'      => 'product_cat',
-				'columns'       => '3'
+				'columns'       => '3',
 			),
 			$atts
 		);
@@ -79,7 +79,7 @@ class Shortcode {
 			return '';
 		}
 
-		// Query args
+		// Query args.
 		$query_args = array(
 			'posts_per_page'      => $per_page,
 			'orderby'             => $orderby,
@@ -92,24 +92,24 @@ class Shortcode {
 					'taxonomy' => $taxonomy,
 					'terms'    => $category,
 					'field'    => 'slug',
-					'operator' => $operator
+					'operator' => $operator,
 				)
 			),
 			'meta_query' => array(
 				array(
 					'key'     => '_visibility',
 					'value'   => array( 'catalog', 'visible' ),
-					'compare' => 'IN'
+					'compare' => 'IN',
 				),
 				array(
 					'key'     => '_featured',
-					'value'   => 'yes'
-				)
+					'value'   => 'yes',
+				),
 			)
 		);
 
-		// Force 'product' custom post type...just in case :-)
-		if ( ! in_array( 'product', $query_args['post_type'] ) ) {
+		// Force 'product' custom post type...just in case :-).
+		if ( ! in_array( 'product', $query_args['post_type'], true ) ) {
 			$query_args['post_type'][] = 'product';
 		}
 
@@ -140,7 +140,7 @@ class Shortcode {
 				'hierarchical' => 0,
 				'taxonomy'     => 'product_cat',
 				'show_title'   => 1,
-				'css_class'    => 'subcategories-from-category'
+				'css_class'    => 'subcategories-from-category',
 			),
 			$atts
 		);
@@ -166,7 +166,7 @@ class Shortcode {
 			return '';
 		}
 
-		// Query args
+		// Query args.
 		$args = array(
 			'orderby'      => $orderby,
 			'order'        => $order,
@@ -178,10 +178,10 @@ class Shortcode {
 			'title_li'     => $show_title ? $term->name : '',
 			'echo'         => 0,
 			'taxonomy'     => $taxonomy,
-			'walker'       => \apply_filters( 'woocommerce_shortcode_subcategories_from_category_walker', new \Walker_Category, $atts )
+			'walker'       => \apply_filters( 'woocommerce_shortcode_subcategories_from_category_walker', new \Walker_Category, $atts ),
 		);
 
-		// Get categories
+		// Get categories.
 		$categories = \wp_list_categories( $args );
 
 		return sprintf(
@@ -197,7 +197,7 @@ class Shortcode {
 	 * @since 1.0.0
 	 */
 	private function is_woocommerce_active() {
-		return in_array( 'woocommerce/woocommerce.php', \apply_filters( 'active_plugins', \get_option( 'active_plugins' ) ) );
+		return in_array( 'woocommerce/woocommerce.php', \apply_filters( 'active_plugins', \get_option( 'active_plugins' ) ), true );
 	}
 
 	/**
