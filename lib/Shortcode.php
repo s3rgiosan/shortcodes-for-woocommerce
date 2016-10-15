@@ -93,7 +93,7 @@ class Shortcode {
 					'terms'    => $category,
 					'field'    => 'slug',
 					'operator' => $operator,
-				)
+				),
 			),
 			'meta_query' => array(
 				array(
@@ -105,7 +105,7 @@ class Shortcode {
 					'key'     => '_featured',
 					'value'   => 'yes',
 				),
-			)
+			),
 		);
 
 		// Force 'product' custom post type...just in case :-).
