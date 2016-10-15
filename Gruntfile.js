@@ -10,7 +10,11 @@ module.exports = function (grunt) {
     textDomain:  'shortcodes-for-woocommerce',
     potFilename: 'shortcodes-for-woocommerce',
     badges:      {
-      codacy: '[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dfb12be070564798bba9fce8cebf10a3)](https://www.codacy.com/app/s3rgiosan/shortcodes-for-woocommerce?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=vint3creative/shortcodes-for-woocommerce&amp;utm_campaign=Badge_Grade)',
+      packagist_stable:    '[![Latest Stable Version](https://poser.pugx.org/vint3/shortcodes-for-woocommerce/v/stable)](https://packagist.org/packages/vint3/shortcodes-for-woocommerce)',
+      packagist_downloads: '[![Total Downloads](https://poser.pugx.org/vint3/shortcodes-for-woocommerce/downloads)](https://packagist.org/packages/vint3/shortcodes-for-woocommerce)',
+      packagist_license:   '[![License](https://poser.pugx.org/vint3/shortcodes-for-woocommerce/license)](https://packagist.org/packages/vint3/shortcodes-for-woocommerce)',
+      codacy_grade:        '[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dfb12be070564798bba9fce8cebf10a3)](https://www.codacy.com/app/s3rgiosan/shortcodes-for-woocommerce?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=vint3creative/shortcodes-for-woocommerce&amp;utm_campaign=Badge_Grade)',
+      codeclimate_grade:   '[![Code Climate](https://codeclimate.com/github/vint3creative/shortcodes-for-woocommerce/badges/gpa.svg)](https://codeclimate.com/github/vint3creative/shortcodes-for-woocommerce)',
     },
   };
 
